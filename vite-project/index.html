@@ -4,24 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/main.ts"></script>
-
+    <link rel="stylesheet" href="/styles/style.css">
     <title>ScrumBoard</title>
   </head>
   <body>
     <div id="app">
-
-      <div id="new">
-      
+      <div id="header">
+        <h1>ScrumBoard</h1>
+        <button id="logout-btn" class="logout-btn">Logout</button>
       </div>
-
-      <div id="doing">
-
+      <div id="admin-forms" class="forms">
+        <div class="form-container">
+          <h3>Add Member</h3>
+          <form id="addMemberForm">
+            <label for="memberName">Name:</label>
+            <input type="text" id="memberName" required>
+            <label for="memberCategory">Category:</label>
+            <select id="memberCategory" required>
+              <option value="ux">UX</option>
+              <option value="dev-frontend">Dev Frontend</option>
+              <option value="dev-backend">Dev Backend</option>
+            </select>
+            <label for="memberRole">Role:</label>
+            <select id="memberRole" required>
+              <option value="member">Member</option>
+              <option value="admin">Admin</option>
+            </select>
+            <button type="submit">Add Member</button>
+          </form>
+        </div>
+        <div class="form-container">
+          <h3>Add Assignment</h3>
+          <form id="addAssignmentForm">
+            <label for="assignmentTitle">Title:</label>
+            <input type="text" id="assignmentTitle" required>
+            <label for="assignmentDescription">Description:</label>
+            <textarea id="assignmentDescription" required></textarea>
+            <label for="assignmentCategory">Category:</label>
+            <select id="assignmentCategory" required>
+              <option value="ux">UX</option>
+              <option value="dev-frontend">Dev Frontend</option>
+              <option value="dev-backend">Dev Backend</option>
+            </select>
+            <button type="submit">Add Assignment</button>
+          </form>
+        </div>
       </div>
-
-      <div id="done">
-
+      <div id="scrumboard">
+        <!-- Kolumner kommer att läggas till här av JS -->
       </div>
-
     </div>
   </body>
 </html>

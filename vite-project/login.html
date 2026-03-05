@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrumboard - Login</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <div id="login-container">
+        <h1>Scrumboard</h1>
+        <div class="login-options">
+            <button id="admin-login-btn" class="login-btn">Login as Admin</button>
+            <button id="member-login-btn" class="login-btn">Login as Team Member</button>
+            <div id="member-selection" class="hidden">
+                <h3>Select Member</h3>
+                <div id="member-buttons" class="member-grid"></div>
+                <button id="back-to-login-btn" class="back-btn">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./src/login.ts"></script>
+</body>
+</html>
