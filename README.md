@@ -1,4 +1,4 @@
-#How to use this project
+# How to get started with the frontend part of the Scrumboard project
 
 I assume you already have checked out the backend part, otherwise go to: https://github.com/Davve420/FE25-JS2-slutprojekt-back-david-brolin
 
