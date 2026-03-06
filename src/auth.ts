@@ -57,6 +57,8 @@ export function isAdmin(members?: Member[]): boolean {
  * @param members - Lista av alla medlemmar
  * @returns Member-objekt eller null
  */
+
+// hämtar inloggad medlem via session.memberId (fungerar för både member/admin).
 export function getCurrentMember(members: Member[]): Member | null {
     const session = getUserSession();
     if (!session) return null;

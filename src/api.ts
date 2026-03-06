@@ -29,7 +29,7 @@ async function request(path: string, options?: RequestInit): Promise<Response> {
     try {
         response = await fetch(`${API_BASE_URL}${path}`, options);
     } catch (error) {
-        throw new Error(extractErrorMessage(error, 'Kunde inte ansluta till servern'));
+        throw new Error(extractErrorMessage(error, 'Could not connect to the server'));
     }
 
     if (!response.ok) {
@@ -48,7 +48,7 @@ export async function fetchAllData(): Promise<{ assignments: Assignment[]; membe
     const data: { assignments?: Assignment[]; members?: Member[] } = await response.json();
 
     if (!Array.isArray(data.assignments) || !Array.isArray(data.members)) {
-        throw new Error('Ogiltigt dataformat från backend');
+        throw new Error('Invalid data format from backend');
     }
 
     return { assignments: data.assignments, members: data.members };

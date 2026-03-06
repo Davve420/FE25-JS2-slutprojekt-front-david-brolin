@@ -121,7 +121,7 @@ function getButtonsForAssignment(assignment: Assignment, members: Member[]): str
  * @param message - Meddelande som ska visas
  */
 export function showSuccessMessage(message: string): void {
-    console.log('✅ Lyckat:', message);
+    console.log(' Success:', message);
     // TODO: Implementera bättre feedback (toast notifications)
 }
 
@@ -130,6 +130,6 @@ export function showSuccessMessage(message: string): void {
  * @param message - Felmeddelande som ska visas
  */
 export function showErrorMessage(message: string): void {
-    console.error('❌ Fel:', message);
+    console.error(' Error:', message);
     alert(message); // Temporär lösning, kan bytas mot toast notifications senare
 }

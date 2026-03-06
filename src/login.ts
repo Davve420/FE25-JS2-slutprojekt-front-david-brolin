@@ -19,7 +19,7 @@ async function initLogin(): Promise<void> {
         const data = await api.fetchAllData();
         allMembers = data.members;
     } catch (error) {
-        console.error('Fel vid hämtning av medlemmar:', error);
+        console.error('Error fetching members:', error);
     }
 
     // Admin-knapp - visa endast admin-medlemmar

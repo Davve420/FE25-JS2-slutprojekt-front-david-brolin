@@ -29,8 +29,8 @@ async function initApp(): Promise<void> {
         setupUIBasedOnRole(data.members);
         setupLogout();
     } catch (error) {
-        console.error('Fel vid initialisering:', error);
-        showErrorMessage('Kunde inte ladda data. Kontrollera att backend-servern körs.');
+        console.error('Initialization error:', error);
+        showErrorMessage('Could not load data. Make sure the backend server is running.');
     }
 }
 

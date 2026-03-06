@@ -33,11 +33,11 @@ function setupAddMemberForm(onDataUpdated: () => void): void {
         
         try {
             await api.addMember(name, category, role);
-            showSuccessMessage(`Medlem "${name}" tillagd!`);
+            showSuccessMessage(`Member "${name}" added!`);
             addMemberForm.reset();
             onDataUpdated();
         } catch (error) {
-            showErrorMessage(getErrorMessage(error, 'Misslyckades att lägga till medlem'));
+            showErrorMessage(getErrorMessage(error, 'Failed to add member'));
         }
     });
 }
@@ -60,11 +60,11 @@ function setupAddAssignmentForm(onDataUpdated: () => void): void {
         
         try {
             await api.addAssignment(title, description, category);
-            showSuccessMessage(`Uppgift "${title}" tillagd!`);
+            showSuccessMessage(`Assignment "${title}" added!`);
             addAssignmentForm.reset();
             onDataUpdated();
         } catch (error) {
-            showErrorMessage(getErrorMessage(error, 'Misslyckades att lägga till uppgift'));
+            showErrorMessage(getErrorMessage(error, 'Failed to add assignment'));
         }
     });
 }
@@ -85,28 +85,28 @@ export async function handleAssignAssignment(
         const availableMembers = data.members.filter((member: Member) => member.category === category);
         
         if (availableMembers.length === 0) {
-            showErrorMessage('Inga medlemmar tillgängliga för denna kategori');
+            showErrorMessage('No members available for this category');
             return;
         }
         
         const memberNames = availableMembers.map((member: Member) => member.name).join(', ');
         const selectedName = prompt(
-            `Tillgängliga medlemmar (${category}): ${memberNames}\nAnge medlemsnamn:`
+            `Available members (${category}): ${memberNames}\nEnter member name:`
         );
         
         if (!selectedName) return;
         
         const member = availableMembers.find((availableMember: Member) => availableMember.name === selectedName);
         if (!member) {
-            showErrorMessage('Medlem ej hittad');
+            showErrorMessage('Member not found');
             return;
         }
         
         await api.assignToMember(assignmentId, member.id);
-        showSuccessMessage(`Tilldelad till ${selectedName}`);
+        showSuccessMessage(`Assigned to ${selectedName}`);
         onDataUpdated();
     } catch (error) {
-        showErrorMessage(getErrorMessage(error, 'Misslyckades att tilldela medlem'));
+        showErrorMessage(getErrorMessage(error, 'Failed to assign member'));
     }
 }
 
@@ -123,10 +123,10 @@ export async function handleUpdateStatus(
 ): Promise<void> {
     try {
         await api.updateAssignmentStatus(assignmentId, status);
-        showSuccessMessage('Status uppdaterad');
+        showSuccessMessage('Status updated');
         onDataUpdated();
     } catch (error) {
-        showErrorMessage(getErrorMessage(error, 'Misslyckades att uppdatera status'));
+        showErrorMessage(getErrorMessage(error, 'Failed to update status'));
     }
 }
 
@@ -139,15 +139,15 @@ export async function handleDeleteAssignment(
     assignmentId: string,
     onDataUpdated: () => void
 ): Promise<void> {
-    if (!confirm('Är du säker på att du vill ta bort denna uppgift?')) {
+    if (!confirm('Are you sure you want to delete this assignment?')) {
         return;
     }
     
     try {
         await api.deleteAssignment(assignmentId);
-        showSuccessMessage('Uppgift borttagen');
+        showSuccessMessage('Assignment deleted');
         onDataUpdated();
     } catch (error) {
-        showErrorMessage(getErrorMessage(error, 'Misslyckades att ta bort uppgift'));
+        showErrorMessage(getErrorMessage(error, 'Failed to delete assignment'));
     }
 }
