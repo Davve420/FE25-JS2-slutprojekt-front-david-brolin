@@ -16,6 +16,7 @@ Now it should say something like "Local: http://localhost:5173/". Open that link
 
 To verify that everything compiles correctly (including TypeScript type checks), run:
 "npm run build"
+Then "npm run start" *to start the server*
 
 If the backend server is running, you should now see data and functionality from backend on the frontend.
 
