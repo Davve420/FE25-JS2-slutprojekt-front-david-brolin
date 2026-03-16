@@ -1,4 +1,4 @@
-#How to use this project
+# How to get started with the frontend part of the Scrumboard project
 
 I assume you already have checked out the backend part, otherwise go to: https://github.com/Davve420/FE25-JS2-slutprojekt-back-david-brolin
 
@@ -15,7 +15,8 @@ To start the project run "npm run dev" at the same place in the CLI.
 Now it should say something like "Local: http://localhost:5173/". Open that link in your browser and you will see the project.
 
 To verify that everything compiles correctly (including TypeScript type checks), run:
-"npm run build"
+"npm run build" (this should create the dist folder made for deployment),
+then run "npm run preview" to see the page. 
 
 If the backend server is running, you should now see data and functionality from backend on the frontend.
 
